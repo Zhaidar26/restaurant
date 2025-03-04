@@ -8,6 +8,14 @@ class LoginResponse implements LoginResponseContract
 {
     public function toResponse($request)
     {
-        return redirect()->intended('/home'); // Ganti dengan halaman yang diinginkan
+        $user = auth()->user();
+
+        // Redirect berdasarkan usertype
+        if ($user->usertype == 1) {
+            return redirect('admin/dashboard'); // Pastikan ini benar
+        }
+
+
+        return redirect('/'); // User biasa
     }
 }
