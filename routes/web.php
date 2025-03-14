@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FoodStoreController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
@@ -23,3 +24,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/admin', [FoodStoreController::class, 'index']);
